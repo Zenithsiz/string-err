@@ -1,0 +1,15 @@
+[package]
+name = "string-err"
+version = "0.1.0"
+authors = ["Filipe Rodrigues <filipejacintorodrigues1@gmail.com>"]
+edition = "2018"
+description = "String error type"
+license = "MIT"
+repository = "https://github.com/Zenithsiz/string-err"
+readme = "README.md"
+keywords = ["error"]
+categories = ["data-structures"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
