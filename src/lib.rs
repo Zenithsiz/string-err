@@ -15,7 +15,7 @@
 //! the libraries built along-side them.
 
 // Features
-#![feature(specialization, backtrace, debug_non_exhaustive)]
+#![feature(specialization, backtrace, debug_non_exhaustive, external_doc)]
 
 // Lints
 #![warn(
@@ -72,3 +72,7 @@ mod display;
 
 // `Error` impl
 mod error;
+
+// `README.md` tests
+#[doc(include = "../README.md")]
+type _ReadmeDocTests = ();
