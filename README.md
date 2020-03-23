@@ -20,8 +20,6 @@ pub fn main() -> Result<(), StringError<Box<dyn Error>>> {
 	
 	assert!( contents.starts_with("String error type.") );
 	
-	// ... Do something with `num`
-	
 	Ok(())
 }
 ```
