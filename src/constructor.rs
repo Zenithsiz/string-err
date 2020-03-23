@@ -42,8 +42,11 @@ impl<E: Sized> StringError<E, ()>
 	/// Returns a function to be passed to `map_err`, `map_panic_err` or alike
 	/// that returns a string error with the underlying error but no backtrace
 	pub fn with_err<R: Into<E>>(msg: impl Into<String>) -> impl FnOnce(R) -> Self {
-		let msg = msg.into();
-		move |err| Self { msg, bt: (), err: err.into() }
+		move |err| Self {
+			msg: msg.into(),
+			bt: (), err:
+			err.into()
+		}
 	}
 }
 
@@ -53,8 +56,10 @@ impl<E: Sized> StringError<E, Backtrace>
 	/// Returns a function to be passed to `map_err`, `map_panic_err` or alike
 	/// that returns a string error with the underlying error and a backtrace
 	pub fn with_err_backtrace<R: Into<E>>(msg: impl Into<String>) -> impl FnOnce(R) -> Self {
-		let msg = msg.into();
-		let bt = Backtrace::force_capture();
-		move |err| Self { msg, bt, err: err.into() }
+		move |err| Self {
+			msg: msg.into(),
+			bt: Backtrace::force_capture(),
+			err: err.into()
+		}
 	}
 }
