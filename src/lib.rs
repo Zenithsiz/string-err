@@ -15,7 +15,13 @@
 //! the libraries built along-side them.
 
 // Features
-#![feature(specialization, backtrace, debug_non_exhaustive, external_doc)]
+#![feature(
+	specialization,
+	backtrace,
+	debug_non_exhaustive,
+	external_doc,
+	try_trait,
+)]
 
 // Lints
 #![warn(
@@ -39,9 +45,11 @@
 
 // Modules
 pub mod maybe_backtrace;
+pub mod result_ext;
 
 // Exports
 pub use maybe_backtrace::MaybeBacktrace;
+pub use result_ext::ResultExt;
 
 /// The string error type
 /// 

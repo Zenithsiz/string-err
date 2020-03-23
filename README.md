@@ -8,15 +8,15 @@ such as in a binary when executing `main`.
 ```rust
 use std::{io::Read, error::Error};
 
-use string_err::StringError;
+use string_err::{StringError, ResultExt};
 
 pub fn main() -> Result<(), StringError<Box<dyn Error>>> {
 	let mut file = std::fs::File::open("README.md")
-		.map_err( StringError::with_err("Could not open the file") )?;
+		.map_err_msg("Could not open the file")?;
 	
 	let mut contents = String::new();
 	file.read_to_string(&mut contents)
-		.map_err( StringError::with_err("Could not read the file") )?;
+		.map_err_msg("Could not read the file")?;
 	
 	assert!( contents.starts_with("String error type.") );
 	
